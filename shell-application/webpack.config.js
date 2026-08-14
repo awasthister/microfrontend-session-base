@@ -2,6 +2,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const {ModuleFederationPlugin} = require("webpack").container;
 const path = require("path");
 
+// Configure HTML template
 const htmlPlugin = new HtmlWebPackPlugin({
   template: "./public/index.html",
   filename: "./index.html"
@@ -15,6 +16,7 @@ module.exports = {
       index:'/public/index.html'
     },
   },
+  // JavaScript processing
   module: {
     rules: [{
       test: /\.js$/,
@@ -30,6 +32,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "ShellApplication",
       filename: "remoteEntry.js",
+      // Remote MicroFrontend application
       remotes: {
         MicroFrontend: "MicroFrontend@http://localhost:3001/remoteEntry.js"
       }
