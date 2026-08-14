@@ -1,4 +1,6 @@
 import React from 'react'
+
+// Load components from the MicroFrontend application
 const Button = React.lazy(() => import('MicroFrontend/Button'))
 const InputField = React.lazy(() => import('MicroFrontend/InputField'))
 
